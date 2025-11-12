@@ -1,0 +1,25 @@
+﻿# Dependencies
+**/[Dd]ependencies/
+**/[Pp]ackages/
+
+# Toolset
+**/[Tt]ools/
+
+# Project-specific files
+*.csproj.user
+*.csproj.SdkResolver.*
+*.sln.docstates
+*.suo
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio Code files
+.vscode/
+
+# Rider files
+.idea/
+
+# Mac files
+.DS_Store
