@@ -23,9 +23,7 @@ A multi-platform project combining hardware, AI, and mobile application to help 
 - [Hardware Components](#-hardware-components)
 - [Installation & Setup](#-installation--setup)
 - [Usage Example](#-usage-example)
-- [Team](#-team)
 - [Future Improvements](#-future-improvements)
-- [License](#-license)
 
 ---
 
@@ -79,7 +77,7 @@ Simultaneously, the system sends the detection result (image + vocabulary) to a 
 ```
 ┌─────────────┐
 │ ESP32-CAM   │
-│ (Capture)   │
+│ (Video)   │
 └──────┬──────┘
        │
        ▼
@@ -104,13 +102,12 @@ Simultaneously, the system sends the detection result (image + vocabulary) to a 
 ### Backend & AI
 - **Python Django** - REST API framework
 - **YOLOv8** (Ultralytics) - Object detection
-- **OpenCV** - Image processing
 - **Django REST Framework** - API endpoints
 
 ### Mobile Application
 - **.NET MAUI** (C#) - Cross-platform mobile app
 - **REST API Integration** - Backend communication
-- **SQLite** - Local data storage
+- **MySQL** - Local data storage
 
 ### Hardware
 - **ESP32-CAM** - Camera module with WiFi
@@ -118,6 +115,8 @@ Simultaneously, the system sends the detection result (image + vocabulary) to a 
 - **128x64 OLED Display** - Word display
 - **DFPlayer Mini** - Audio playback module
 - **Speaker** (3W-5W) - Audio output
+
+
 
 ---
 
@@ -154,8 +153,8 @@ Simultaneously, the system sends the detection result (image + vocabulary) to a 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ai-image-dictionary.git
-cd ai-image-dictionary/backend
+git clone https://github.com/hanami88/Ai-image-recognition-dictionary
+cd Ai-image-recognition-dictionary/backend
 
 # Create virtual environment
 python -m venv venv
@@ -179,20 +178,15 @@ python manage.py runserver 0.0.0.0:8000
 dotnet build
 
 # Run on Android
-dotnet run --project YourProject.csproj -f net7.0-android
+dotnet run --project PBL5.csproj -f net7.0-android
 
 # Run on iOS
-dotnet run --project YourProject.csproj -f net7.0-ios
+dotnet run --project PBl5.csproj -f net7.0-ios
 ```
 
 ### 3️⃣ ESP32-CAM Firmware
 
 ```cpp
-// Update WiFi credentials in config.h
-#define WIFI_SSID "your_wifi_ssid"
-#define WIFI_PASSWORD "your_wifi_password"
-#define API_ENDPOINT "http://your-server-ip:8000/api/detect"
-
 // Flash firmware using Arduino IDE
 // Board: AI Thinker ESP32-CAM
 // Upload Speed: 115200
@@ -270,15 +264,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-## 📧 Contact
-
-For questions or suggestions, please open an issue on GitHub.
-
----
-
 <div align="center">
-
-**Made with ❤️ by the AI Dictionary Team**
 
 ⭐ Star this repository if you find it helpful!
 
