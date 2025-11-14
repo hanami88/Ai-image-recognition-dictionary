@@ -1,7 +1,7 @@
 ---<h1 align="center">✨ AI Image Recognition Dictionary ✨</h1>
 
 
-# A multi-platform project combining hardware, AI, and mobile application to help users learn English vocabulary through real-world object recognition.
+A multi-platform project combining hardware, AI, and mobile application to help users learn English vocabulary through real-world object recognition.
 
 ---
 
@@ -20,13 +20,11 @@ My role: Hardware & AI development (ESP32-CAM, Arduino, YOLOv8, Django, AI pipel
 ## ✨ Features
 # 🔍 AI Recognition
 
-YOLOv8 object detection model
+- YOLOv8 object detection model
+- Django backend processes images and returns predictions
+- Supports common everyday objects
 
-Django backend processes images and returns predictions
-
-Supports common everyday objects
-
-📱 MAUI App (C#)
+## 📱 MAUI App (C#)
 
 Receives vocabulary + detected image via API
 
