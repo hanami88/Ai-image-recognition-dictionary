@@ -1,19 +1,24 @@
-AI Image Recognition Dictionary
+---<h1 align="center">✨ AI Image Recognition Dictionary ✨</h1>
 
-A multi-platform project combining hardware, AI, and mobile application to help users learn English vocabulary through real-world object recognition.
 
-📌 Overview
+# A multi-platform project combining hardware, AI, and mobile application to help users learn English vocabulary through real-world object recognition.
 
-This system recognizes everyday objects using an ESP32-CAM with a YOLOv8 model running on a Django backend. When the camera detects an object, the Arduino Uno R3 triggers a speaker to pronounce the English name and displays the word on an OLED screen. Meanwhile, the system sends the detected data (image + vocabulary) to a MAUI C# application where users can review and learn vocabulary.
+---
 
-👥 Team Members
+## 📌 Overview
+
+**This system recognizes everyday objects using an ESP32-CAM with a YOLOv8 model running on a Django backend. When the camera detects an object, the Arduino Uno R3 triggers a speaker to pronounce the English name and displays the word on an OLED screen. Meanwhile, the system sends the detected data (image + vocabulary) to a MAUI C# application where users can review and learn vocabulary.
+
+---
+
+## 👥 Team Members
 
 4 members total
 
 My role: Hardware & AI development (ESP32-CAM, Arduino, YOLOv8, Django, AI pipeline)
 
-✨ Features
-🔍 AI Recognition
+## ✨ Features
+# 🔍 AI Recognition
 
 YOLOv8 object detection model
 
