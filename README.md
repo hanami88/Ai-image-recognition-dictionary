@@ -1,157 +1,138 @@
----<h1 align="center">✨ AI Image Recognition Dictionary ✨</h1>
+<h1 align="center">✨ AI Image Recognition Dictionary ✨</h1>
 
-
-A multi-platform project combining hardware, AI, and mobile application to help users learn English vocabulary through real-world object recognition.
+A multi-platform project combining hardware, AI, and mobile application features to help users learn English vocabulary through real-world object recognition.
 
 ---
 
 ## 📌 Overview
 
-**This system recognizes everyday objects using an ESP32-CAM with a YOLOv8 model running on a Django backend. When the camera detects an object, the Arduino Uno R3 triggers a speaker to pronounce the English name and displays the word on an OLED screen. Meanwhile, the system sends the detected data (image + vocabulary) to a MAUI C# application where users can review and learn vocabulary.
+This system recognizes everyday objects using an **ESP32-CAM** with a **YOLOv8** model running on a **Django backend**.  
+When the camera detects an object, the **Arduino Uno R3** triggers:
+
+- A **speaker** to pronounce the English name  
+- An **OLED screen** to display the word  
+
+At the same time, the system sends the detection result (image + vocabulary) to a **.NET MAUI C# application**, allowing users to review and learn vocabulary.
 
 ---
 
 ## 👥 Team Members
 
-4 members total
+- **4 members in total**  
+- **My role:** Hardware & AI development (ESP32-CAM, Arduino, YOLOv8, Django, AI pipeline)
 
-My role: Hardware & AI development (ESP32-CAM, Arduino, YOLOv8, Django, AI pipeline)
+---
 
 ## ✨ Features
-# 🔍 AI Recognition
 
-- YOLOv8 object detection model
-- Django backend processes images and returns predictions
-- Supports common everyday objects
+### 🔍 AI Recognition
+- YOLOv8 object detection model  
+- Django backend processes images and returns predictions  
+- Supports common everyday objects  
 
-## 📱 MAUI App (C#)
+### 📱 MAUI App Features
+- Receives vocabulary + detected images via API  
+- Stores learning history  
+- Allows users to review, manage, and study detected words  
 
-Receives vocabulary + detected image via API
+### 🔧 Hardware Integration
+#### ESP32-CAM
+- Captures images and sends them to the Django backend  
 
-Saves learning history
+#### Arduino Uno R3
+- **Speaker** → pronounces the English word  
+- **OLED screen** → displays the detected word  
 
-Users can review and study detected words
+#### Communication
+- ESP32 ↔ Arduino communication synchronizes detection and output  
 
-🔧 Hardware Integration
+---
 
-ESP32-CAM captures images and sends to Django
-
-🏗️ System Architecture
+## 🏗️ System Architecture
 
 ESP32-CAM → Django Server (YOLOv8) → Arduino (Speaker + OLED)
-                               ↓
-                          MAUI App (API)
+↓
+MAUI App (API)
 
 
-Arduino Uno R3 controls:
+---
 
-Speaker → pronounces the English word
+## 🖥️ Technologies Used
 
-🖥️ Technologies Used
-Backend & AI
+### Backend & AI
+- Python Django (REST API)  
+- YOLOv8 (Ultralytics)  
 
-Python Django (REST API)
+### Mobile App
+- .NET MAUI (C#)  
+- REST API integration  
 
-YOLOv8 (Ultralytics)
+### Hardware
+- ESP32-CAM  
+- Arduino Uno R3  
+- OLED Display  
+- Speaker  
 
-Mobile App
+---
 
-.NET MAUI (C#)
+## 📡 Data Flow
 
-API integration for history storage
+1. User points the ESP32-CAM at an object  
+2. ESP32-CAM captures an image → sends it to Django  
+3. YOLOv8 model detects objects  
+4. Django returns: **object name + confidence**  
+5. Arduino receives the word and:  
+   - Plays the English pronunciation  
+   - Displays the word on the OLED screen  
+6. Django sends the detection result to the MAUI App  
+7. MAUI App stores **image + detected vocabulary**  
 
-Hardware
+---
 
-ESP32-CAM
+## 🧪 Example Use Case
 
-Arduino Uno R3
+- User points the camera at a **bottle**  
+- Speaker pronounces: **"bottle"**  
+- OLED displays: **BOTTLE**  
+- MAUI app logs the detection into learning history  
 
-OLED Display
+---
 
-Speaker
+## 🚀 How to Run
 
-📡 Data Flow
+### 1️⃣ Backend (Django)
 
-User points camera at an object
-
-ESP32-CAM captures image → sends to Django
-
-YOLOv8 model detects object
-
-Django returns: object name + confidence
-
-Arduino receives word and:
-
-Plays English audio
-
-Shows word on OLED
-
-Django sends result to MAUI App
-
-MAUI App saves vocabulary + image
-
-🧪 Example Use Case
-
-Point camera at a bottle
-
-Speaker pronounces: “bottle”
-
-OLED displays: BOTTLE
-
-MAUI App logs the detection
-
-🚀 How to Run
-Backend (Django)
+```bash
 cd backend
 pip install -r requirements.txt
 python manage.py runserver
 
-MAUI App
+2️⃣ MAUI App
 
-Open in Visual Studio
+Open the project in Visual Studio
 
-Build on Android or iOS
+Build for Android or iOS
 
-Run the project
+Run the solution
 
-ESP32-CAM
+3️⃣ ESP32-CAM
 
 Flash firmware
 
 Update WiFi credentials + Django API endpoint
 
-Arduino
+4️⃣ Arduino Uno
 
-Upload .ino file controlling OLED + speaker
-
-📁 Project Structure
-project/
-├── backend/       (Django + YOLOv8)
-├── maui-app/      (.NET MAUI)
-├── esp32/         (ESP32-CAM firmware)
-├── arduino/       (Arduino Uno + OLED + speaker)
-└── docs/
+Upload the .ino file controlling the OLED + speaker
 
 📚 Future Improvements
 
-Offline detection
+Offline AI detection
 
-Add phonetic transcription
+Add phonetic transcription (IPA)
 
-Vocabulary categories
+Vocabulary categorization
 
-Multi-language translation
+Multi-language translation support
 
-📝 License
-
-MIT License
-
-🙌 Acknowledgments
-
-Thanks to the project team and the open-source communities supporting YOLO, MAUI, and embedded development.
-
-
-
-OLED screen → displays the word
-
-ESP32 ↔ Arduino communication to synchronize detection & output
+---
