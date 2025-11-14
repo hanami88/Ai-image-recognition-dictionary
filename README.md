@@ -1,138 +1,285 @@
-<h1 align="center">✨ AI Image Recognition Dictionary ✨</h1>
+# ✨ AI Image Recognition Dictionary
 
-A multi-platform project combining hardware, AI, and mobile application features to help users learn English vocabulary through real-world object recognition.
+<div align="center">
+
+A multi-platform project combining hardware, AI, and mobile application to help users learn English vocabulary through real-world object recognition.
+
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![Django](https://img.shields.io/badge/Django-4.0+-green.svg)](https://www.djangoproject.com/)
+[![.NET MAUI](https://img.shields.io/badge/.NET%20MAUI-7.0+-purple.svg)](https://dotnet.microsoft.com/apps/maui)
+[![YOLOv8](https://img.shields.io/badge/YOLOv8-Ultralytics-orange.svg)](https://github.com/ultralytics/ultralytics)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [Overview](#-overview)
+- [Features](#-features)
+- [System Architecture](#-system-architecture)
+- [Technologies Used](#-technologies-used)
+- [Data Flow](#-data-flow)
+- [Hardware Components](#-hardware-components)
+- [Installation & Setup](#-installation--setup)
+- [Usage Example](#-usage-example)
+- [Team](#-team)
+- [Future Improvements](#-future-improvements)
+- [License](#-license)
 
 ---
 
 ## 📌 Overview
 
-This system recognizes everyday objects using an **ESP32-CAM** with a **YOLOv8** model running on a **Django backend**.  
-When the camera detects an object, the **Arduino Uno R3** triggers:
+This system recognizes everyday objects using an **ESP32-CAM** with a **YOLOv8** model running on a **Django backend**. When the camera detects an object, the **Arduino Uno R3** triggers:
 
-- A **speaker** to pronounce the English name  
-- An **OLED screen** to display the word  
+- 🔊 A **speaker** to pronounce the English name
+- 📺 An **OLED screen** to display the word
 
-At the same time, the system sends the detection result (image + vocabulary) to a **.NET MAUI C# application**, allowing users to review and learn vocabulary.
-
----
-
-## 👥 Team Members
-
-- **4 members in total**  
-- **My role:** Hardware & AI development (ESP32-CAM, Arduino, YOLOv8, Django, AI pipeline)
+Simultaneously, the system sends the detection result (image + vocabulary) to a **.NET MAUI C# application**, allowing users to review and learn vocabulary on their mobile device.
 
 ---
 
 ## ✨ Features
 
-### 🔍 AI Recognition
-- YOLOv8 object detection model  
-- Django backend processes images and returns predictions  
-- Supports common everyday objects  
+### 🤖 AI Recognition
 
-### 📱 MAUI App Features
-- Receives vocabulary + detected images via API  
-- Stores learning history  
-- Allows users to review, manage, and study detected words  
+- **YOLOv8** object detection model
+- Django REST API backend for image processing
+- Real-time predictions with confidence scores
+- Supports common everyday objects
+
+### 📱 MAUI Mobile App
+
+- Receives vocabulary and detected images via API
+- Stores complete learning history
+- Interactive vocabulary review and management
+- User-friendly interface for studying detected words
 
 ### 🔧 Hardware Integration
+
 #### ESP32-CAM
-- Captures images and sends them to the Django backend  
+- Captures high-quality images
+- WiFi connectivity to Django server
+- Low-power consumption
 
 #### Arduino Uno R3
-- **Speaker** → pronounces the English word  
-- **OLED screen** → displays the detected word  
+- **Speaker module** → Pronounces English words
+- **OLED display** → Shows detected vocabulary
+- Synchronized output with detection results
 
-#### Communication
-- ESP32 ↔ Arduino communication synchronizes detection and output  
+#### Communication Protocol
+- ESP32 ↔ Arduino serial communication
+- Real-time data synchronization
 
 ---
 
 ## 🏗️ System Architecture
 
-ESP32-CAM → Django Server (YOLOv8) → Arduino (Speaker + OLED)
-↓
-MAUI App (API)
-
+```
+┌─────────────┐
+│ ESP32-CAM   │
+│ (Capture)   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────────┐
+│   Django Server     │
+│   (YOLOv8 Model)    │
+└──────┬──────────────┘
+       │
+       ├──────────────────┐
+       ▼                  ▼
+┌─────────────┐    ┌──────────────┐
+│  Arduino    │    │  MAUI App    │
+│ Speaker +   │    │  (Mobile)    │
+│    OLED     │    └──────────────┘
+└─────────────┘
+```
 
 ---
 
 ## 🖥️ Technologies Used
 
 ### Backend & AI
-- Python Django (REST API)  
-- YOLOv8 (Ultralytics)  
+- **Python Django** - REST API framework
+- **YOLOv8** (Ultralytics) - Object detection
+- **OpenCV** - Image processing
+- **Django REST Framework** - API endpoints
 
-### Mobile App
-- .NET MAUI (C#)  
-- REST API integration  
+### Mobile Application
+- **.NET MAUI** (C#) - Cross-platform mobile app
+- **REST API Integration** - Backend communication
+- **SQLite** - Local data storage
 
 ### Hardware
-- ESP32-CAM  
-- Arduino Uno R3  
-- OLED Display  
-- Speaker  
+- **ESP32-CAM** - Camera module with WiFi
+- **Arduino Uno R3** - Microcontroller
+- **128x64 OLED Display** - Word display
+- **DFPlayer Mini** - Audio playback module
+- **Speaker** (3W-5W) - Audio output
 
 ---
 
 ## 📡 Data Flow
 
-1. User points the ESP32-CAM at an object  
-2. ESP32-CAM captures an image → sends it to Django  
-3. YOLOv8 model detects objects  
-4. Django returns: **object name + confidence**  
-5. Arduino receives the word and:  
-   - Plays the English pronunciation  
-   - Displays the word on the OLED screen  
-6. Django sends the detection result to the MAUI App  
-7. MAUI App stores **image + detected vocabulary**  
+1. 📸 User points the **ESP32-CAM** at an object
+2. 🌐 ESP32-CAM captures image → sends to **Django server**
+3. 🧠 **YOLOv8 model** processes and detects objects
+4. 📤 Django returns: **object name + confidence score**
+5. 🎯 **Arduino** receives the word and:
+   - 🔊 Plays the English pronunciation via speaker
+   - 📺 Displays the word on OLED screen
+6. 📲 Django sends detection result to **MAUI App**
+7. 💾 MAUI App stores **image + vocabulary** in learning history
 
 ---
 
-## 🧪 Example Use Case
+## 🔌 Hardware Components
 
-- User points the camera at a **bottle**  
-- Speaker pronounces: **"bottle"**  
-- OLED displays: **BOTTLE**  
-- MAUI app logs the detection into learning history  
+| Component | Model | Purpose |
+|-----------|-------|---------|
+| Camera Module | ESP32-CAM | Image capture & WiFi |
+| Microcontroller | Arduino Uno R3 | Hardware control |
+| Display | OLED 128x64 (I2C) | Word visualization |
+| Audio Module | DFPlayer Mini | MP3 playback |
+| Speaker | 3W-5W | Audio output |
+| Power Supply | 5V 2A | System power |
 
 ---
 
-## 🚀 How to Run
+## 🚀 Installation & Setup
 
 ### 1️⃣ Backend (Django)
 
 ```bash
-cd backend
+# Clone the repository
+git clone https://github.com/yourusername/ai-image-dictionary.git
+cd ai-image-dictionary/backend
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
 pip install -r requirements.txt
-python manage.py runserver
 
-2️⃣ MAUI App
+# Run migrations
+python manage.py migrate
 
-Open the project in Visual Studio
+# Start server
+python manage.py runserver 0.0.0.0:8000
+```
 
-Build for Android or iOS
+### 2️⃣ MAUI Mobile App
 
-Run the solution
+```bash
+# Open project in Visual Studio 2022
+# Build the solution
+dotnet build
 
-3️⃣ ESP32-CAM
+# Run on Android
+dotnet run --project YourProject.csproj -f net7.0-android
 
-Flash firmware
+# Run on iOS
+dotnet run --project YourProject.csproj -f net7.0-ios
+```
 
-Update WiFi credentials + Django API endpoint
+### 3️⃣ ESP32-CAM Firmware
 
-4️⃣ Arduino Uno
+```cpp
+// Update WiFi credentials in config.h
+#define WIFI_SSID "your_wifi_ssid"
+#define WIFI_PASSWORD "your_wifi_password"
+#define API_ENDPOINT "http://your-server-ip:8000/api/detect"
 
-Upload the .ino file controlling the OLED + speaker
+// Flash firmware using Arduino IDE
+// Board: AI Thinker ESP32-CAM
+// Upload Speed: 115200
+```
 
-📚 Future Improvements
+### 4️⃣ Arduino Uno R3
 
-Offline AI detection
-
-Add phonetic transcription (IPA)
-
-Vocabulary categorization
-
-Multi-language translation support
+```bash
+# Open Arduino IDE
+# Install libraries:
+# - Adafruit_SSD1306
+# - DFPlayer Mini Mp3
+# Upload the sketch to Arduino Uno R3
+```
 
 ---
+
+## 🧪 Usage Example
+
+**Scenario:** User points camera at a water bottle
+
+1. 📸 ESP32-CAM captures the image
+2. 🧠 YOLOv8 detects: **"bottle"** (confidence: 95%)
+3. 🔊 Speaker pronounces: **"bottle"** /ˈbɑː.t̬əl/
+4. 📺 OLED displays: **BOTTLE**
+5. 📱 MAUI app logs:
+   ```
+   Object: Bottle
+   Time: 2025-11-14 10:30:45
+   Confidence: 95%
+   Image: [thumbnail]
+   ```
+
+---
+
+## 👥 Team
+
+This project is developed by a team of **4 members**:
+
+- **Hardware & AI Developer** - ESP32-CAM, Arduino integration, YOLOv8 model, Django backend
+- **Mobile Developer** - .NET MAUI application
+- **Backend Developer** - Django REST API
+- **Hardware Designer** - Circuit design and assembly
+
+---
+
+## 🚀 Future Improvements
+
+- [ ] **Offline AI Detection** - Run YOLOv8 directly on ESP32
+- [ ] **Phonetic Transcription** - Display IPA pronunciation
+- [ ] **Vocabulary Categories** - Organize words by topics
+- [ ] **Multi-language Support** - Translation to Vietnamese, Spanish, etc.
+- [ ] **Spaced Repetition** - Smart review algorithm
+- [ ] **Voice Recognition** - Practice pronunciation
+- [ ] **Cloud Sync** - Backup learning progress
+- [ ] **Gamification** - Points, achievements, and streaks
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📧 Contact
+
+For questions or suggestions, please open an issue on GitHub.
+
+---
+
+<div align="center">
+
+**Made with ❤️ by the AI Dictionary Team**
+
+⭐ Star this repository if you find it helpful!
+
+</div>
