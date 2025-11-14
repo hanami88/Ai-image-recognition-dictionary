@@ -109,6 +109,10 @@ Simultaneously, the system sends the detection result (image + vocabulary) to a 
 - **REST API Integration** - Backend communication
 - **MySQL** - Local data storage
 
+<img width="1021" height="762" alt="image" src="https://github.com/user-attachments/assets/0151843d-7d7b-479f-8e87-41a89b107db6" />
+
+<img width="1022" height="766" alt="image" src="https://github.com/user-attachments/assets/8066626a-7026-4221-9a1c-185c88fd8dfb" />
+
 ### Hardware
 - **ESP32-CAM** - Camera module with WiFi
 - **Arduino Uno R3** - Microcontroller
@@ -116,7 +120,7 @@ Simultaneously, the system sends the detection result (image + vocabulary) to a 
 - **DFPlayer Mini** - Audio playback module
 - **Speaker** (3W-5W) - Audio output
 
-
+<img width="1536" height="2048" alt="image" src="https://github.com/user-attachments/assets/8f5a535b-a22b-4360-917f-73ab7abfb08a" />
 
 ---
 
@@ -178,10 +182,10 @@ python manage.py runserver 0.0.0.0:8000
 dotnet build
 
 # Run on Android
-dotnet run --project PBL5.csproj -f net7.0-android
+dotnet run --project PBL5.csproj -f net8.0-android
 
 # Run on iOS
-dotnet run --project PBl5.csproj -f net7.0-ios
+dotnet run --project PBl5.csproj -f net8.0-ios
 ```
 
 ### 3️⃣ ESP32-CAM Firmware
