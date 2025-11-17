@@ -1,4 +1,4 @@
-# ✨ AI Image Recognition Dictionary
+---<h1 align="center">✨ AI Image Recognition Dictionary</h1>
 
 <div align="center">
 
